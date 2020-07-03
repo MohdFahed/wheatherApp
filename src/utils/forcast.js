@@ -8,7 +8,11 @@ const forcast = (latitude,longitude,callback) =>{
          }else if(response.body.error){
             callback("unable to  find location...",undefined)
          }else{
-            callback(undefined,response.body.current.weather_descriptions[0]+'. It is currently '+response.body.current.temperature+' degree out. it feels like '+response.body.current.feelslike+' degree out')
+             const temp = response.body.current.temperature;
+             const finalTemp = Math.ceil((temp-32)* 5/9);
+             const futureTemp = response.body.current.feelslike;
+             const finalFutureTemp = Math.ceil((futureTemp-32)* 5/9);
+            callback(undefined,response.body.current.weather_descriptions[0]+'. It is currently '+finalTemp+'°F. it feels like '+response.body.current.feelslike+' degree out')
          }
        })
  }
