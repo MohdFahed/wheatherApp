@@ -12,7 +12,7 @@ const msgTwo = document.querySelector('#messageTwo');
     const location = search.value;
     msgOne.textContent ='loading..';
     msgTwo.textContent ='';
-    fetch('http://localhost:3000/wheather?address='+location).then((response)=>{
+    fetch('/wheather?address='+location).then((response)=>{
     response.json().then((data)=>{
        if(data.error){
             msgOne.textContent = data.error; 

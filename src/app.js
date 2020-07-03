@@ -4,6 +4,7 @@ const hbs = require ('hbs');
 const geocode = require('./utils/geocode');
 const forcast = require ('./utils/forcast');
 const app = express();
+const port = process.env.PORT || 3000
 
 //Difine paths for express config
 const publicdirPath = path.join(__dirname,'../public'); //manupulate path where index.html is present...
@@ -88,6 +89,6 @@ app.get('*',(req,res) => {
 })
 
 
-app.listen(3000,()=>{
-    console.log('application run on port 3000...')
+app.listen(port,()=>{
+    console.log('application run on port'+port)
 })
